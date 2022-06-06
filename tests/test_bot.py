@@ -640,3 +640,18 @@ class TestHomework:
                 f'Убедитесь, что в функции `{func_name}` обрабатываете ситуацию, '
                 'когда API возвращает код, отличный от 200'
             )
+
+'''
+from unittest import TestCase, mock, main as uni_main
+import homework
+JSON = {'error': 'testing'}
+
+class TestReq(TestCase):
+    @mock.patch('requests.get')
+    def test_error(self, rq_get):
+        resp = mock.Mock()
+        resp.json = mock.Mock(return_value=JSON)
+        rq_get.return_value = resp
+        homework.main()
+uni_main()
+'''

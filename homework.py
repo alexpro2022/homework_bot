@@ -151,12 +151,9 @@ def main():
     set_log()
     if not check_tokens():
         raise SystemExit(SYSTEM_EXIT_PHRASE)
-
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
-
     current_timestamp = int(time.time())
     prev_message = ''
-
     while True:
         try:
             response = get_api_answer(current_timestamp)

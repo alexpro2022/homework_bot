@@ -73,7 +73,7 @@ MAIN_ERROR_PHRASE = 'Сбой в программе: {error}'
 
 
 class TokenError(Exception):
-    """Исключение для невалидного токена Практикума."""
+    """Исключение для невалидных токенов."""
 
     pass
 
@@ -169,18 +169,13 @@ def send_message(bot, message):
     return False
 
 
-def main():
+def main(bot):
     """
     Основная логика работы бота.
     Сделать запрос к API. Проверить ответ. Если есть обновления —
     получить статус работы из обновления и отправить сообщение в Telegram.
     Подождать некоторое время и сделать новый запрос.
     """
-    try:
-        bot = telegram.Bot(token=TELEGRAM_TOKEN)
-    except telegram.error.InvalidToken:
-        logging.exception(TELEGRAM_INVALID_TOKEN)
-        return
     current_timestamp = int(time.time())
     prev_error, prev_status = '', ''
     while True:
@@ -225,6 +220,11 @@ if __name__ == '__main__':
         ]
     )
     if check_tokens():
-        main()
+        try:
+            bot = telegram.Bot(token=TELEGRAM_TOKEN)
+        except telegram.error.InvalidToken:
+            logging.exception(TELEGRAM_INVALID_TOKEN)
+            raise TokenError(TELEGRAM_INVALID_TOKEN)
+        main(bot)
     else:
         logging.critical(SYSTEM_EXIT_PHRASE)

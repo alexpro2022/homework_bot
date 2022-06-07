@@ -74,11 +74,13 @@ MAIN_ERROR_PHRASE = 'Сбой в программе: {error}'
 
 class TokenError(Exception):
     """Исключение для невалидного токена Практикума."""
+
     pass
 
 
 class ServerError(Exception):
     """Исключение для ошибок сервера Практикума."""
+
     pass
 
 

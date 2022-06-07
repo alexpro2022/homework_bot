@@ -3,7 +3,6 @@ import os
 import sys
 import time
 
-
 import requests
 import telegram
 
@@ -69,6 +68,8 @@ RESPONSE_IS_NOT_DICT_PHRASE = (
 KEY_IS_NOT_IN_RESPONSE_PHRASE = 'Отсутствие ключа ["homeworks"] в ответе API.'
 HOMEWORKS_IS_NOT_LIST_PHRASE = (
     'Ответ API не содержит список под ключом ["homeworks"].')
+SERVER_ERROR_PHRASE = 'Сбой Сервера с ошибками: {server_errors}'
+MAIN_ERROR_PHRASE = 'Сбой в программе: {error}'
 
 
 class TokenError(Exception):
@@ -110,7 +111,8 @@ def get_api_answer(current_timestamp):
         if item in response_json:
             server_errors.append(f'{item} : {response_json[item]}')
     if server_errors:
-        raise ServerError(f'Сбой Сервера с ошибками: {server_errors}')
+        raise ServerError(
+            SERVER_ERROR_PHRASE.format(server_errors=server_errors))
     return response_json
 
 
@@ -194,7 +196,7 @@ def main():
                     current_timestamp = response_json.get(
                         'current_date', current_timestamp)
         except Exception as exc_error:
-            error = f'Сбой в программе: {exc_error}'
+            error = MAIN_ERROR_PHRASE.format(error=exc_error)
             logging.exception(error)
             if prev_error != error and send_message(bot, error):
                 prev_error = error

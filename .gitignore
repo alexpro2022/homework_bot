@@ -151,5 +151,5 @@ posts/static/
 media/
 
 # log file
-homework.log
+homework.py.log
 temp.py

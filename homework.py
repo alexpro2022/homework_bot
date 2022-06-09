@@ -81,17 +81,14 @@ def check_tokens():
 def get_api_answer(current_timestamp):
     """Делает запрос к единственному эндпоинту API-сервиса."""
     params = {'from_date': current_timestamp}
+    req_params = dict(url=ENDPOINT, headers=HEADERS, params=params)
     try:
-        response = requests.get(ENDPOINT, headers=HEADERS, params=params)
+        response = requests.get(**req_params)
     except requests.exceptions.RequestException as err:
-        raise ConnectionError(
-            REQUEST_ERROR.format(
-                url=ENDPOINT, headers=HEADERS, params=params)) from err
+        raise ConnectionError(REQUEST_ERROR.format(**req_params)) from err
     if response.status_code != 200:
         raise ServerError(
-            HTTP_ERROR.format(
-                status_code=response.status_code,
-                url=ENDPOINT, headers=HEADERS, params=params))
+            HTTP_ERROR.format(status_code=response.status_code, **req_params))
     response_json = response.json()
     server_errors = []
     for item in ('code', 'error'):
@@ -100,8 +97,7 @@ def get_api_answer(current_timestamp):
     if server_errors:
         raise ServerError(
             SERVER_ERROR.format(
-                server_errors=server_errors,
-                url=ENDPOINT, headers=HEADERS, params=params))
+                server_errors=server_errors, **req_params))
     return response_json
 
 
@@ -133,19 +129,8 @@ def parse_status(homework):
     return PARSE_STATUS_RETURN.format(name=name, verdict=verdict)
 
 
-def get_bot():
-    """Активирует бота."""
-    try:
-        return telegram.Bot(token=TELEGRAM_TOKEN)
-    except telegram.error.TelegramError as error:
-        logging.exception(TELEGRAM_BOT_ACTIVATION_FAILED.format(error=error))
-
-
 def send_message(bot, message):
     """Отправляет сообщение в Telegram чат."""
-    if not bot:
-        logging.info(message)
-        return True
     try:
         bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
         logging.info(TELEGRAM_INFO.format(message=message))
@@ -166,10 +151,13 @@ def main():
     if not check_tokens():
         logging.critical(SYSTEM_EXIT)
         return
-    bot = get_bot()
+    try:
+        bot = telegram.Bot(token=TELEGRAM_TOKEN)
+    except telegram.error.TelegramError as error:
+        logging.exception(TELEGRAM_BOT_ACTIVATION_FAILED.format(error=error))
+        return
     current_timestamp = int(time.time())
     prev_error = ''
-    new_status = True
     while True:
         try:
             response_json = get_api_answer(current_timestamp)
@@ -178,10 +166,8 @@ def main():
                 if send_message(bot, parse_status(homeworks[0])):
                     current_timestamp = response_json.get(
                         'current_date', current_timestamp)
-                    new_status = True
-            elif new_status:
-                logging.info(STATUS_NOTHING)
-                new_status = False
+            else:
+                logging.debug(STATUS_NOTHING)
         except Exception as exc_error:
             error = MAIN_ERROR.format(error=exc_error)
             logging.exception(error)
@@ -194,15 +180,12 @@ if __name__ == '__main__':
     logging.basicConfig(
         level=logging.INFO,
         format=(
-            '========================\n'
-            '%(asctime)s\n'
-            '%(levelname)s, %(name)s, %(funcName)s, %(lineno)s\n'
-            '%(message)s\n'
-            '========================\n'),
+            '%(asctime)s : %(levelname)s, %(name)s, '
+            '%(funcName)s, %(lineno)s, %(message)s'),
         handlers=[
             logging.StreamHandler(sys.stdout),
             logging.FileHandler(
-                __file__[::-1].split('.')[1][::-1] + '.log',
+                f'{__file__}.log',
                 encoding='utf-8')
         ])
     main()

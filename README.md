@@ -1,7 +1,7 @@
 # Проект: Telegram Bot
 [![status](https://github.com/alexpro2022/homework_bot/actions/workflows/main.yml/badge.svg)](https://github.com/alexpro2022/homework_bot/actions)
 [![codecov](https://codecov.io/gh/alexpro2022/homework_bot/branch/master/graph/badge.svg?token=VJVG3LCS7A)](https://codecov.io/gh/alexpro2022/homework_bot)
-
+В этом приложении реализован Telegram-бот, который обращается к API сервиса Практикум.Домашка и узнавать статус вашей домашней работы: взята ли ваша домашка в ревью, проверена ли она, а если проверена — то принял её ревьюер или вернул на доработку.
 
 
 ## Оглавление:
@@ -36,6 +36,7 @@
 
 
 ## Описание работы:
+Краткая документация к API-сервису и примеры запросов доступны в шпаргалке «API сервиса Практикум.Домашка».
 
 [⬆️Оглавление](#оглавление)
 
@@ -74,6 +75,21 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 pip list
 ```
+
+5. Скопируйте содержимое файла **env_example** (при этом будет создан файл *.env*):
+```
+cp env_example .env
+```
+
+6. Откройте новый **.env**-файл и введите данные для переменных окружения:
+    PRACTICUM_TOKEN=
+    TELEGRAM_TOKEN=
+    TELEGRAM_CHAT_ID=
+
+  - Получить PRACTICUM_TOKEN можно по адресу: https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a.
+  - Получить токен вашего бота можно у бота @BotFather.
+  - Узнать свой ID можно у бота @userinfobot.
+
 
 [⬆️Оглавление](#оглавление)
 

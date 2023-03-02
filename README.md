@@ -1,6 +1,6 @@
 # Проект: Telegram Bot
 [![status](https://github.com/alexpro2022/homework_bot/actions/workflows/main.yml/badge.svg)](https://github.com/alexpro2022/homework_bot/actions)
-[![codecov](https://codecov.io/gh/alexpro2022/hw05_final/branch/master/graph/badge.svg?token=1ETL9DOJEB)](https://codecov.io/gh/alexpro2022/hw05_final)
+[![codecov](https://codecov.io/gh/alexpro2022/homework_bot/branch/master/graph/badge.svg?token=VJVG3LCS7A)](https://codecov.io/gh/alexpro2022/homework_bot)
 
 
 

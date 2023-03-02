@@ -1,4 +1,4 @@
-name: Telegram_Bot workflow
+name: Telegram Bot workflow
 
 on:
   push:

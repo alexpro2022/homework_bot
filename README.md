@@ -24,7 +24,7 @@
 [![logging](https://img.shields.io/badge/-logging-464646?logo=python)](https://docs.python.org/3/library/logging.html)
 [![os](https://img.shields.io/badge/-os-464646?logo=python)](https://docs.python.org/3/library/os.html)
 [![sys](https://img.shields.io/badge/-sys-464646?logo=python)](https://docs.python.org/3/library/sys.html)
-[![PTB](https://img.shields.io/badge/-Python_Telegram_Bot-464646?logo=Python)](https://docs.python-telegram-bot.org/en/stable/index.html)
+[![python-telegram-bot](https://img.shields.io/badge/-python--telegram--bot-464646?logo=Python)](https://docs.python-telegram-bot.org/en/stable/index.html)
 [![time](https://img.shields.io/badge/-time-464646?logo=python)](https://docs.python.org/3/library/time.html)
 
 [![python-dotenv](https://img.shields.io/badge/-python--dotenv-464646?logo=Python)](https://pypi.org/project/python-dotenv/)

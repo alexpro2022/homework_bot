@@ -1,4 +1,4 @@
-name: Telegram Bot workflow
+name: Telegram Bot Test Suite
 
 on:
   push:

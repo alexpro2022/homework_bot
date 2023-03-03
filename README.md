@@ -23,8 +23,8 @@
 [![Python](https://warehouse-camo.ingress.cmh1.psfhosted.org/7c5873f1e0f4375465dfebd35bf18f678c74d717/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f7072657474797461626c652e7376673f6c6f676f3d707974686f6e266c6f676f436f6c6f723d464645383733)](https://www.python.org/)
 [![logging](https://img.shields.io/badge/-logging-464646?logo=python)](https://docs.python.org/3/library/logging.html)
 [![os](https://img.shields.io/badge/-os-464646?logo=python)](https://docs.python.org/3/library/os.html)
-[![sys](https://img.shields.io/badge/-sys-464646?logo=python)](https://docs.python.org/3/library/sys.html)
 [![python-telegram-bot](https://img.shields.io/badge/-python--telegram--bot-464646?logo=Python)](https://docs.python-telegram-bot.org/en/stable/index.html)
+[![sys](https://img.shields.io/badge/-sys-464646?logo=python)](https://docs.python.org/3/library/sys.html)
 [![time](https://img.shields.io/badge/-time-464646?logo=python)](https://docs.python.org/3/library/time.html)
 
 [![python-dotenv](https://img.shields.io/badge/-python--dotenv-464646?logo=Python)](https://pypi.org/project/python-dotenv/)

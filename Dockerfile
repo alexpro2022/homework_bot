@@ -1,5 +1,6 @@
 FROM python:3.7-slim
 WORKDIR /app
+COPY Dockerfile .
 COPY .env .
 COPY homework.py .
 COPY requirements.txt .

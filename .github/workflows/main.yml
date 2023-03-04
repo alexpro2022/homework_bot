@@ -1,4 +1,4 @@
-name: Telegram Bot Test Suite
+name: Telegram Bot CI/CD
 
 on:
   push:

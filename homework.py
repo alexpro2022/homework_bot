@@ -155,7 +155,8 @@ def main():
     except telegram.error.TelegramError as error:
         logging.exception(TELEGRAM_BOT_ACTIVATION_FAILED.format(error=error))
         return
-    current_timestamp = int(time.time())
+    # current_timestamp = int(time.time())
+    current_timestamp = 0
     prev_error = ''
     while True:
         try:

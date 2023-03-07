@@ -76,7 +76,7 @@ jobs:
             echo TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} >> .env
 
             sudo docker stop homework_bot
-            sudo docker run --rm -d --name homework_bot ${{ secrets.DOCKER_USERNAME }}/homework_bot
+            sudo docker run --rm -d -p 3000:3000 --name homework_bot ${{ secrets.DOCKER_USERNAME }}/homework_bot
 
   send_message:
     runs-on: ubuntu-latest

@@ -54,7 +54,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.USER }}/homework_bot:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/homework_bot:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -68,15 +68,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/homework_bot
-            
-            touch .env
-            echo PRACTICUM_TOKEN=${{ secrets.PRACTICUM_TOKEN }} >> .env
-            echo TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} >> .env
-            echo TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} >> .env
-
             sudo docker stop homework_bot
-            sudo docker run --rm -d -p 3000:3000 --name homework_bot ${{ secrets.DOCKER_USERNAME }}/homework_bot
+            sudo docker rmi ${{ secrets.DOCKER_USERNAME }}/homework_bot && sudo docker pull ${{ secrets.DOCKER_USERNAME }}/homework_bot
+            sudo docker run --rm -d -p 3000:3000 --name homework_bot ${{ secrets.DOCKER_USERNAME }}/homework_bot -e PRACTICUM_TOKEN=${{ secrets.PRACTICUM_TOKEN }} TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}  TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
 
   send_message:
     runs-on: ubuntu-latest

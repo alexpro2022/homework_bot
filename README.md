@@ -10,6 +10,7 @@
 - [Описание работы](#описание-работы)
 - [Создание и настройка аккаунта бота](#создание-и-настройка-аккаунта-бота)
 - [Установка и запуск](#установка-и-запуск)
+- [Удаление](#удаление)
 - [Автор](#автор)
 
 
@@ -39,6 +40,8 @@
 **CI/CD:**
 
 [![GitHub_Actions](https://img.shields.io/badge/-GitHub_Actions-464646?logo=GitHub)](https://docs.github.com/en/actions)
+[![docker_hub](https://img.shields.io/badge/-Docker_Hub-464646?logo=docker)](https://hub.docker.com/)
+[![docker](https://img.shields.io/badge/-Docker-464646?logo=docker)](https://www.docker.com/) 
 [![Telegram](https://img.shields.io/badge/-Telegram-464646?logo=Telegram)](https://core.telegram.org/api)
 
 [⬆️Оглавление](#оглавление)
@@ -92,6 +95,19 @@ https://code.s3.yandex.net/backend-developer/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B
 
 ## Установка и запуск:
 Удобно использовать принцип copy-paste - копировать команды из GitHub Readme и вставлять в командную строку Git Bash или IDE (например VSCode).
+### Предварительные условия для Docker:
+<details><summary>Развернуть</summary>
+
+Предполагается, что пользователь:
+ - создал [бота](#создание-и-настройка-аккаунта-бота).
+ - создал аккаунт [DockerHub](https://hub.docker.com/), если запуск будет производиться на удаленном сервере.
+ - установил [Docker](https://docs.docker.com/engine/install/) на удаленном сервере. Проверить наличие можно выполнив команду:
+    ```bash
+    docker --version
+    ```
+</details>
+<h2></h2>
+<details><summary>Локальный запуск</summary>
 
 1. Клонируйте репозиторий с GitHub: 
 ```bash
@@ -134,9 +150,50 @@ python -m pip install --upgrade pip && pip install -r requirements.txt
 ```bash
 python homework.py
 ```
+ 
+6. Остановить приложение можно комбинацией клавиш Ctl-C. 
+ 
+ <h2></h2>
+</details>
 
+<details><summary>Запуск на удаленном сервере</summary> 
+
+1. Сделайте [форк](https://docs.github.com/en/get-started/quickstart/fork-a-repo) в свой репозиторий.
+
+2. Создайте `Actions.Secrets` согласно списку ниже:
+```py
+# переменные окружения из env_example файла:
+PRACTICUM_TOKEN=
+TELEGRAM_TOKEN=
+TELEGRAM_CHAT_ID=
+ 
+PROJECT_NAME
+SECRET_KEY
+
+DOCKERHUB_USERNAME
+DOCKERHUB_PASSWORD
+
+# Данные удаленного сервера и ssh-подключения:
+HOST  # публичный IP-адрес вашего удаленного сервера
+USERNAME
+SSH_KEY  
+PASSPHRASE
+```
+
+3. Запустите вручную `workflow`, чтобы автоматически развернуть проект в docker-контейнере на удаленном сервере.
+</details>
+<h2></h2>
+ 
 [⬆️Оглавление](#оглавление)
 
+
+## Удаление:
+Для удаления проекта выполните команду:
+```bash
+cd .. && rm -fr homework_bot && deactivate
+```
+  
+[⬆️Оглавление](#оглавление)
 
 
 ## Автор:

@@ -8,30 +8,28 @@
 ## Оглавление:
 - [Технологии](#технологии)
 - [Описание работы](#описание-работы)
-- [Установка](#установка)
-- [Создание и настройка аккаунта бота](#Создание-и-настройка-аккаунта-бота)
-- [Запуск](#запуск)
+- [Создание и настройка аккаунта бота](#создание-и-настройка-аккаунта-бота)
+- [Установка и запуск](#установка-и-запуск)
 - [Автор](#автор)
 
 
 
 ## Технологии:
+<details><summary>Развернуть</summary>
 
+**Языки программирования, библиотеки и модули:**
 
-**Языки программирования, модули и библиотеки:**
-
-[![Python](https://warehouse-camo.ingress.cmh1.psfhosted.org/7c5873f1e0f4375465dfebd35bf18f678c74d717/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f7072657474797461626c652e7376673f6c6f676f3d707974686f6e266c6f676f436f6c6f723d464645383733)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue?logo=python)](https://www.python.org/)
+[![python-telegram-bot](https://img.shields.io/badge/-python--telegram--bot-464646?logo=Python)](https://docs.python-telegram-bot.org/en/stable/index.html) 
 [![logging](https://img.shields.io/badge/-logging-464646?logo=python)](https://docs.python.org/3/library/logging.html)
 [![os](https://img.shields.io/badge/-os-464646?logo=python)](https://docs.python.org/3/library/os.html)
-[![python-telegram-bot](https://img.shields.io/badge/-python--telegram--bot-464646?logo=Python)](https://docs.python-telegram-bot.org/en/stable/index.html)
 [![sys](https://img.shields.io/badge/-sys-464646?logo=python)](https://docs.python.org/3/library/sys.html)
 [![time](https://img.shields.io/badge/-time-464646?logo=python)](https://docs.python.org/3/library/time.html)
-
 [![python-dotenv](https://img.shields.io/badge/-python--dotenv-464646?logo=Python)](https://pypi.org/project/python-dotenv/)
 [![Requests](https://img.shields.io/badge/-Requests:_HTTP_for_Humans™-464646?logo=Python)](https://pypi.org/project/requests/)
 
 
-**Тесты:**
+**Тестирование:**
 
 [![Pytest](https://img.shields.io/badge/-Pytest-464646?logo=Pytest)](https://docs.pytest.org/en/latest/)
 [![Pytest-cov](https://img.shields.io/badge/-Pytest--cov-464646?logo=Pytest)](https://pytest-cov.readthedocs.io/en/latest/)
@@ -40,12 +38,11 @@
 
 **CI/CD:**
 
-[![GitHub](https://img.shields.io/badge/-GitHub-464646?logo=GitHub)](https://docs.github.com/en)
 [![GitHub_Actions](https://img.shields.io/badge/-GitHub_Actions-464646?logo=GitHub)](https://docs.github.com/en/actions)
 [![Telegram](https://img.shields.io/badge/-Telegram-464646?logo=Telegram)](https://core.telegram.org/api)
 
 [⬆️Оглавление](#оглавление)
-
+</details>
 
 
 ## Описание работы:
@@ -60,64 +57,8 @@ https://code.s3.yandex.net/backend-developer/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B
 [⬆️Оглавление](#оглавление)
 
 
-
-## Установка:
-1. Клонировать репозиторий с GitHub:
-```
-git clone git@github.com:alexpro2022/homework_bot.git
-```
-
-2. Перейти в созданную директорию проекта:
-```
-cd homework_bot
-```
-
-3. Создать и активировать виртуальное окружение:
-```
-python -m venv venv
-```
-* Если у вас Linux/macOS
-
-    ```
-    source venv/bin/activate
-    ```
-
-* Если у вас windows
-
-    ```
-    source venv/Scripts/activate
-    ```
-
-4. Установить все необходимые зависимости из файла **requirements.txt**:
-```
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-pip list
-```
-
-5. Скопируйте содержимое файла **env_example** (при этом будет создан файл *.env*):
-```
-cp env_example .env
-```
-
-6. Откройте новый **.env**-файл и введите данные для переменных окружения:
-    ```
-    PRACTICUM_TOKEN=
-    TELEGRAM_TOKEN=
-    TELEGRAM_CHAT_ID=
-    ```
-
-  - Получить PRACTICUM_TOKEN можно по адресу: https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a
-  - Получить токен вашего бота можно у бота @BotFather командой /mybots и далее API Token.
-  - Узнать свой ID можно у бота @userinfobot.
-
-Если у вас нет аккаунта бота в Телеграм, его надо создать [Создание и настройка аккаунта бота](#Создание-и-настройка-аккаунта-бота)
-
-[⬆️Оглавление](#оглавление)
-
-
-
 ## Создание и настройка аккаунта бота:
+
 1. @BotFather — регистрирует аккаунты ботов в Telegram:
 
 Найдите в Telegram бота @BotFather: в окно поиска над списком контактов введите его имя.
@@ -149,12 +90,48 @@ cp env_example .env
 [⬆️Оглавление](#оглавление)
 
 
+## Установка и запуск:
+Удобно использовать принцип copy-paste - копировать команды из GitHub Readme и вставлять в командную строку Git Bash или IDE (например VSCode).
 
-## Запуск:
-
-Выполните команду:
-
+1. Клонируйте репозиторий с GitHub: 
+```bash
+git clone https://github.com/alexpro2022/homework_bot.git && \
+cd homework_bot && \
+cp env_example .env && \
+nano .env
 ```
+
+2. В открывшемся новом **.env**-файле введите данные для переменных окружения:
+```bash
+PRACTICUM_TOKEN=
+TELEGRAM_TOKEN=
+TELEGRAM_CHAT_ID=
+```
+
+  - Получить PRACTICUM_TOKEN можно по адресу: https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a
+  - Получить токен вашего бота можно у бота @BotFather командой /mybots и далее API Token.
+  - Узнать свой ID можно у бота @userinfobot.
+
+Если у вас нет аккаунта бота в Телеграм, его надо [создать](#создание-и-настройка-аккаунта-бота)
+
+3. Создайте и активируйте виртуальное окружение:
+   * Если у вас Linux/macOS
+   ```bash
+    python -m venv venv && source venv/bin/activate
+   ```
+   * Если у вас Windows
+   ```bash
+    python -m venv venv && source venv/Scripts/activate
+   ```
+
+4. Установите в виртуальное окружение все необходимые зависимости из файла **requirements.txt**:
+```bash
+python -m pip install --upgrade pip && pip install -r requirements.txt
+```
+
+5. Для запуска выполните команду:
+
+```bash
 python homework.py
 ```
 

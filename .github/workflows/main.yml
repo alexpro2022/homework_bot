@@ -77,13 +77,12 @@ jobs:
           script: |
             #sudo docker stop ${{ secrets.PROJECT_NAME }}
             #sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/homework_bot
             sudo docker run --rm -d \
               -e PRACTICUM_TOKEN=${{ secrets.PRACTICUM_TOKEN }} \
               -e TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} \
               -e TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} \
-              --name homework_bot \
-              ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}
+              --name homework_bot ${{ secrets.DOCKERHUB_USERNAME }}/homework_bot
 
   send_message:
     runs-on: ubuntu-latest

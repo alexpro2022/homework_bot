@@ -82,7 +82,7 @@ jobs:
               -e PRACTICUM_TOKEN=${{ secrets.PRACTICUM_TOKEN }} \
               -e TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} \
               -e TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} \
-              --name homework_bot ${{ secrets.DOCKERHUB_USERNAME }}/homework_bot
+              --name homework_bot ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
 
   send_message:
     runs-on: ubuntu-latest

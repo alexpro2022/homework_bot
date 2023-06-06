@@ -75,9 +75,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            #sudo docker stop ${{ secrets.PROJECT_NAME }}
-            #sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/homework_bot
+            sudo docker stop ${{ secrets.PROJECT_NAME }}
+            sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
             sudo docker run --rm -d \
               -e PRACTICUM_TOKEN=${{ secrets.PRACTICUM_TOKEN }} \
               -e TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} \

@@ -61,7 +61,7 @@ https://code.s3.yandex.net/backend-developer/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B
 
 ## Установка и запуск:
 Удобно использовать принцип copy-paste - копировать команды из GitHub Readme и вставлять в командную строку Git Bash или IDE (например VSCode).
-#### Предварительные условия для Docker:
+#### Предварительные условия:
 <details><summary>Развернуть</summary>
 
 Предполагается, что пользователь:
@@ -94,7 +94,7 @@ TELEGRAM_CHAT_ID=
   - Получить токен вашего бота можно у бота @BotFather командой /mybots и далее API Token.
   - Узнать свой ID можно у бота @userinfobot.
 
-Если у вас нет аккаунта бота в Телеграм, его надо [создать](https://github.com/alexpro2022/instructions-t-bot/blob/main/README.md#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0-%D0%B1%D0%BE%D1%82%D0%B0)
+Если у вас нет аккаунта бота в Телеграм, его нужно [создать](https://github.com/alexpro2022/instructions-t-bot/blob/main/README.md#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0-%D0%B1%D0%BE%D1%82%D0%B0)
 
 3. Создайте и активируйте виртуальное окружение:
    * Если у вас Linux/macOS

@@ -53,8 +53,7 @@
   * при обновлении статуса анализировать ответ API и отправлять вам соответствующее уведомление в Telegram;
   * логировать свою работу и сообщать вам о важных проблемах сообщением в Telegram.
 
-Краткая документация к API-сервису и примеры запросов доступны в шпаргалке «API сервиса Практикум.Домашка»:
-https://code.s3.yandex.net/backend-developer/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC.%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0%20%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0.pdf
+Краткая документация к API-сервису и примеры запросов доступны в [шпаргалке](https://code.s3.yandex.net/backend-developer/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC.%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0%20%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0.pdf) «API сервиса Практикум.Домашка»:
 
 [⬆️Оглавление](#оглавление)
 
@@ -90,7 +89,7 @@ TELEGRAM_TOKEN=
 TELEGRAM_CHAT_ID=
 ```
 
-  - Получить PRACTICUM_TOKEN можно по адресу: https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a
+  - Получить PRACTICUM_TOKEN можно по [ссылке]( https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a)
   - Получить токен вашего бота можно у бота @BotFather командой /mybots и далее API Token.
   - Узнать свой ID можно у бота @userinfobot.
 
